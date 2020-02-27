@@ -42,6 +42,19 @@ const user = {
       })
       .catch(error => res.send({ error, status: 4 }));
   },
+  id: (req, res) => {
+    const id = req.body.id;
+
+    User.find({ _id: id })
+      .then(results => {
+        if (!results.length) {
+          res.send({ status: 2 });
+        } else {
+          res.send({ status: 1, user: results[0] });
+        }
+      })
+      .catch(error => res.send({ error, status: 4 }));
+  },
 };
 
 export default user;

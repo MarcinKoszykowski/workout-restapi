@@ -6,6 +6,8 @@ const router = express.Router();
 
 router.post('/user/register', user.register);
 router.post('/user/login', user.login);
+router.post('/user/id', user.id);
+
 
 router.use((req, res, next) => {
   let token = req.headers['Access-Token'];
