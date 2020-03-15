@@ -55,6 +55,14 @@ const user = {
       })
       .catch(error => res.send({ error, status: 4 }));
   },
+  update: (req, res) => {
+    const update = req.body.update;
+    const id = req.body.id;
+
+    User.findByIdAndUpdate(id, update)
+      .then(res.send({ status: 1 }))
+      .catch(error => res.send({ error, status: 2 }));
+  },
 };
 
 export default user;
