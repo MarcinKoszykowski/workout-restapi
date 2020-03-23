@@ -1,16 +1,20 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
-import user from '../controllers/UserControllers';
+import user from '../controllers/UserController';
+import details from '../controllers/DetailsController';
 
+const app = express();
 const router = express.Router();
 
 router.post('/user/register', user.register);
 router.post('/user/login', user.login);
-router.post('/user/id', user.id);
-router.post('/user/update', user.update);
+router.post('/user/get/id', user.getById);
+
+router.post('/details/add', details.add);
+router.post('/details/get/userId', details.getByUserId);
 
 router.use((req, res, next) => {
-  let token = req.headers['Access-Token'];
+  const token = req.headers['Access-Token'];
 
   if (token) {
     jwt.verify(token, app.get('Secret'), (error, decoded) => {

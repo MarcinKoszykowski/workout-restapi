@@ -14,11 +14,6 @@ const userSchema = new Schema({
     required: true,
     default: Date.now,
   },
-  login: {
-    type: String,
-    required: false,
-    default: '',
-  },
 });
 
 export default mongoose.model('user', userSchema);
