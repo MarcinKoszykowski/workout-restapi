@@ -31,8 +31,7 @@
     "husky": "^4.2.3",
     "lint-staged": "^10.0.8",
     "nodemon": "^2.0.2",
-    "prettier": "^2.0.1",
-    "webpack-env": "^0.8.0"
+    "prettier": "^2.0.1"
   },
   "husky": {
     "hooks": {

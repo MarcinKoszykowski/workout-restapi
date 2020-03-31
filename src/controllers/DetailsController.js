@@ -2,8 +2,7 @@ import Details from '../models/Details';
 
 const details = {
   add: async (req, res) => {
-    const {userId} = req.body;
-    const {data} = req.body;
+    const { userId, data } = req.body;
 
     Details.find({ userId })
       .then((results) => {
@@ -36,7 +35,7 @@ const details = {
       .catch((error) => res.send({ error, status: 3 }));
   },
   getByUserId: (req, res) => {
-    const {userId} = req.body;
+    const { userId } = req.body;
 
     Details.find({ userId })
       .then((results) => {

@@ -12,7 +12,7 @@ const userSchema = new Schema({
   creationDate: {
     type: Date,
     required: true,
-    default: Date.now,
+    default: () => Date.now() + 7200000,
   },
 });
 
