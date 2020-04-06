@@ -36,5 +36,7 @@ router.post('/user/get/id', user.getById);
 router.post('/details/add', details.add);
 router.post('/details/get/userId', details.getByUserId);
 router.post('/training/add', training.add);
+router.post('/training/get/userId', training.getByUserId);
+router.post('/training/delete', training.delete);
 
 export default router;
