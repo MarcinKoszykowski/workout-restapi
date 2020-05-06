@@ -33,6 +33,7 @@ router.use((req, res, next) => {
 });
 
 router.post('/user/get/id', user.getById);
+router.post('/user/edit/password', user.editPassword);
 router.post('/details/add', details.add);
 router.post('/details/get/userId', details.getByUserId);
 router.post('/training/add', training.add);

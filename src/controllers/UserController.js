@@ -64,6 +64,38 @@ const user = {
       })
       .catch((error) => res.send({ error, status: 4 }));
   },
+  editPassword: (req, res) => {
+    const { userId, data } = req.body;
+
+    User.find({ _id: userId })
+      .then((results) => {
+        if (!results.length) {
+          res.send({ status: 4 });
+        } else {
+          const userPassword = results[0].password;
+
+          if (userPassword === data.password) {
+            User.findOneAndUpdate(
+              { _id: userId },
+              {
+                password: data.newPassword,
+              },
+              { new: true, useFindAndModify: false },
+              (err) => {
+                if (err) {
+                  res.send({ status: 2 });
+                } else {
+                  res.send({ status: 1 });
+                }
+              },
+            ).catch((error) => res.send({ error, status: 2 }));
+          } else {
+            res.send({ status: 3 });
+          }
+        }
+      })
+      .catch((error) => res.send({ error, status: 2 }));
+  },
 };
 
 export default user;
